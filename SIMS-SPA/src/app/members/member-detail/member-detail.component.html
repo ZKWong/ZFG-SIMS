@@ -1,0 +1,239 @@
+<div class="container mt-4">
+  <a [routerLink]="['/members']" class="previous round"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+  <div class="row">
+    <h1>{{ user.firstName }}'s Profile</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img
+          class="card-img-top img-thumbnail"
+          src="{{ user.photoUrl || '../../../assets/user.png' }}"
+          alt="{{ user.knownAs }}"
+        />
+        <div class="card-body">
+          <div>
+            <strong>Name:</strong>
+            <p>{{ user.firstName }} {{ user.lastName }}</p>
+          </div>
+          <div>
+            <strong>Email:</strong>
+            <p>{{rowData.Email}}</p>
+          </div>
+          <div>
+            <strong>Phone Number:</strong>
+            <p>{{rowData.PhoneNumber}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="member-tabset">
+          <tab heading="About {{ user.firstName }}">
+            <!--<div class="row">
+              <div class="col-4"><h6>Student's Status:</h6></div>
+              <div class="col"></div>
+            </div>-->
+            <div class="row">
+              <div class="col-4"><h6>Student ID:</h6></div>
+              <div class="col">{{rowData.UserName}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>First Name:</h6></div>
+              <div class="col">{{rowData.FirstName}}</div>
+            </div>
+            <!--<div class="row">
+              <div class="col-4"><h6>Middle Name:</h6></div>
+              <div class="col">{{rowData.MiddleName || "none"}}</div>
+            </div>-->
+            <div class="row">
+              <div class="col-4"><h6>Last Name:</h6></div>
+              <div class="col">{{rowData.LastName}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>CS Degree Program:</h6></div>
+              <div class="col">{{rowData.DegreeProgram}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>CurrentProgram:</h6></div>
+              <div class="col">{{rowData.CurrentProgram}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Current Academic Level:</h6></div>
+              <div class="col">{{rowData.CurrentAcademicLevel}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Email:</h6></div>
+              <div class="col">{{rowData.Email}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Phone Number 1:</h6></div>
+              <div class="col">{{rowData.PhoneNumber}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Phone Number 2:</h6></div>
+              <div class="col">{{rowData.PhoneNumber2 || "none"}}</div>
+            </div>
+          </tab>
+          <tab heading="Photos">
+            <ngx-gallery
+              [options]="galleryOptions"
+              [images]="galleryImages"
+            ></ngx-gallery>
+          </tab>
+          <tab heading="Bachelor Details">
+            <div class="row">
+              <div class="col-4"><h6>Bachelor Start Date:</h6></div>
+              <div class="col">{{rowData.BachelorsStartDate|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Bachelor Mentor:</h6></div>
+              <div class="col">{{rowData.BachelorsMentor|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Bachelor Project Advisor:</h6></div>
+              <div class="col">{{rowData.BachelorsProjectAdvisor|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Bachelor Thesis Advisor:</h6></div>
+              <div class="col">{{rowData.BachelorsThesisAdvisor|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Bachelor Project Title:</h6></div>
+              <div class="col">{{rowData.BachelorsProjectTitle|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Bachelor Thesis Title:</h6></div>
+              <div class="col">{{rowData.BachelorsThesisTitle|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Bachelor Graduation Date:</h6></div>
+              <div class="col">{{rowData.BachelorsGradDate|| "none"}}</div>
+            </div>
+          </tab>
+          <tab *ngIf="(bDegreeMaster)" heading="Master Details">
+            <!--<div class="row">
+              <div class="col-4"><h6>Master's Focus:</h6></div>
+              <div class="col">{{rowData.MasterFocus|| "none"}}</div>
+            </div>-->
+            <div class="row">
+              <div class="col-4"><h6>Start Date:</h6></div>
+              <div class="col">{{rowData.MastersStartDate|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Master Project Advisor:</h6></div>
+              <div class="col">{{rowData.MastersProjectAdvisor|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Master Thesis Advisor:</h6></div>
+              <div class="col">{{rowData.MastersThesisAdvisor|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Committee Member 1:</h6></div>
+              <div class="col">{{rowData.MastersCommMember1|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Committee Member 2:</h6></div>
+              <div class="col">{{rowData.MastersCommMember2|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Committee Member 3:</h6></div>
+              <div class="col">{{rowData.MastersCommMember3|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Committee Member 4:</h6></div>
+              <div class="col">{{rowData.MastersCommMember4|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Committee Member 5:</h6></div>
+              <div class="col">{{rowData.MastersCommMember5|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Committee Formed Date:</h6></div>
+              <div class="col">{{rowData.MastersCommFormedDate|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>MS Defense Date:</h6></div>
+              <div class="col">{{rowData.MastersDefenseDate|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Master Project Title:</h6></div>
+              <div class="col">{{rowData.MastersProjectTitle|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Master Thesis Title:</h6></div>
+              <div class="col">{{rowData.MastersThesisTitle|| "none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>MS Graduation Date:</h6></div>
+              <div class="col">{{rowData.MastersGradDate||"none"}}</div>
+            </div>
+          </tab>
+          <tab *ngIf="(bDegreePhd)" heading="PhD Details">
+            <div class="row">
+              <div class="col-4"><h6>Doctoral Candidate:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>  
+            <div class="row">
+              <div class="col-4"><h6>Start Date:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Date Accepted for Candidacy:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Advisor:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>External Advisor:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Committee Member 1:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Committee Member 2:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Committee Member 3:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Committee Member 4:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Committee Member 5:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Committee Member 6:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Dissertation Defense Date:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Dissertation Title:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>Dissertation:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+            <div class="row">
+              <div class="col-4"><h6>PhD Graduation Date:</h6></div>
+              <div class="col">{{"none"}}</div>
+            </div>
+          </tab>
+        </tabset>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="row ml-4 mt-2">
+  <h3>Computer Science Courses Offer</h3>
+</div>
+<div class="row justify-content-center mt-3 ml-1">
+  <div class="col-12">
+    <div class="row mt-3">
+      <div class="col-7">
+        <ag-grid-angular 
+          #agGrid 
+          id="coursesGrid"
+          class="ag-theme-balham" 
+          [rowData]="rowData" 
+          [columnDefs]="columnDefs"
+          [enableSorting]="true"
+          [enableFilter]="true"
+          [pagination]="true"
+          [paginationPageSize]="20"
+          (gridReady)="onGridReady($event)"
+          (rowClicked)="onGridClicked($event)">
+        </ag-grid-angular>
+      </div>
+      <div class="col-5">
+        <div class="row">
+          <div class="col-3"><h6>PROFESSOR:</h6></div>
+            <div class="col">
+            <select name="professor" [(ngModel)]="rowClicked.prof_id" class="course_input">
+                <option *ngFor="let professor of professors" [ngValue]= "professor.prof_id">{{professor.prof_name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3"><h6>YEAR:</h6></div>
+          <div class="col">
+            <select name="year" [(ngModel)]="rowClicked.course_year" class="course_input">
+                <option *ngFor="let year of years" [ngValue]= "year">{{year}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3"><h6>SEMESTER:</h6></div>
+            <div class="col">
+            <select name="semester" [(ngModel)]="rowClicked.course_semester" class="course_input">
+                <option *ngFor="let semester of semesters" [ngValue]= "semester">{{semester}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3"><h6>COURSE:</h6></div>
+            <div class="col">
+            <select (change)="onSelectCourse($event.target.value)" [(ngModel)]="rowClicked.course" class="course_input">
+                <option *ngFor="let kourse of courses" [ngValue]= "kourse.course">{{kourse.course}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3"><h6>COURSE NAME:</h6></div>
+            <div class="col">
+            <label class="course_input">{{rowClicked.course_name}}</label> 
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-3"></div>
+          <div class="col-2">
+            <button class="btn btn-primary" (click)="Courses_Offer_AddUpdateDelete('ADD')">ADD</button>
+          </div>
+          <div class="col-2">
+            <button class="btn btn-primary" (click)="Courses_Offer_AddUpdateDelete('UPDATE')">UPDATE</button>
+          </div>
+          <div class="col-2">
+            <button class="btn btn-primary" (click)="Courses_Offer_AddUpdateDelete('DELETE')">DELETE</button>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col">
+              <input type="file" ng2FileSelect [uploader]="uploader" [(ngModel)]="importFile.fileName" name="fileName">
+            <button class="btn btn-primary" (click)="importcoursesoffer()">Import Courses Offer Data</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

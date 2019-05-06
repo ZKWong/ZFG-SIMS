@@ -1,0 +1,42 @@
+.form {
+    display: flex;
+}
+.left {
+    width: 700px;
+}
+.right {
+    flex: 1px;
+}
+.right p {
+    margin: 0;
+    margin-bottom: 15px;
+}
+.right .mat-checkbox {
+    display: block;
+    margin-bottom: 15px;
+}
+.rw .mat-form-field {
+    margin-right: 20px;
+}
+
+.form-btns .mat-raised-button {
+    margin-right: 20px;
+}
+
+
+.detail .rw {
+    display: flex;
+    padding: 10px 0;
+}
+.detail p {
+    margin: 0;
+    flex: 1;
+}
+.detail p span {
+    margin-right: 10px;
+    color: #999;
+}
+.detail .form-btns {
+    margin-top: 30px;
+    text-align: center;
+}

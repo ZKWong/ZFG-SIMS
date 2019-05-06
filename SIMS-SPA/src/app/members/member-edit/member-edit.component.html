@@ -1,0 +1,577 @@
+<div class="container mt-4">
+  <a *appHasRole="['Admin','Staff']"[routerLink]="['/members']" class="previous round"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+  <div class="row">
+    <div class="col-sm-4">
+      <h1>{{ user.firstName }}'s Profile</h1>
+    </div>
+    <div class="col-sm-8">
+      <div *ngIf="editForm.dirty" class="alert alert-info">
+        <strong>Information:</strong> You have made changes. Any unsaved changes will be lost!
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top img-thumbnail" src="{{user.photoUrl || '../../../assets/user.png'}}"
+          alt="{{user.firstName}}">
+        <div class="card-body">
+          <div>
+            <strong>Name:</strong>
+            <p>{{ user.firstName }} {{ user.lastName }}</p>
+          </div>
+          <div>
+            <strong>Email:</strong>
+            <p>{{user.email}}</p>
+          </div>
+          <div>
+            <strong>Phone Number:</strong>
+            <p>{{user.phoneNumber}}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">Save Changes</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <form #editForm='ngForm' id="editForm" (ngSubmit)="updateUserProfile()">
+        <div class="tab-panel">
+          <tabset class="member-tabset">
+            <tab heading="About {{ user.firstName }}">
+              <!--<div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="status">Status</span>
+                </div>
+                <input readonly type="text" class="form-control" name="status" [(ngModel)]="user.currentAcademicLevel">
+              </div>-->
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="userID">Student ID</span>
+                </div>
+                <input readonly type="text" class="form-control" name="userID" [(ngModel)]="user.username">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="firstName">First Name</span>
+                </div>
+                <input readonly type="text" class="form-control" name="firstName" [(ngModel)]="user.firstName">
+              </div>
+              <!--<div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="middleName">Middle Name</span>
+                </div>
+                <input readonly type="text" class="form-control" name="middleName" [(ngModel)]="user.middleName">
+              </div>-->
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="lastName">Last Name</span>
+                </div>
+                <input readonly type="text" class="form-control" name="lastName" [(ngModel)]="user.lastName">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="degreeProgram">Degree Program</span>
+                </div>
+                <input readonly type="text" class="form-control" name="degreeProgam" [(ngModel)]="user.degreeProgram">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="currentProgram">Current Program</span>
+                </div>
+                <input readonly type="text" class="form-control" name="currentProgam" [(ngModel)]="user.currentProgram">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="currentAcademicLevel">Academic
+                    Level</span>
+                </div>
+                <input readonly type="text" class="form-control" name="currentAcademicLevel"
+                  [(ngModel)]="user.currentAcademicLevel">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="email">Email</span>
+                </div>
+                <input readonly type="text" class="form-control" name="email" [(ngModel)]="user.email">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="phoneNumber">Phone #</span>
+                </div>
+                <input readonly type="text" class="form-control" name="phoneNumber" [(ngModel)]="user.phoneNumber">
+              </div>
+              <!--<div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="alPhoneNumber">Alt Phone #</span>
+                </div>
+                <input type="text" class="form-control" name="altPhoneNumber" [(ngModel)]="user.phoneNumber2">
+              </div>
+              <div class="input-group mb-3" style="height: 300px">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="notes">Notes</span>
+                </div>
+                <textarea class="form-control" name="notes" [(ngModel)]="user.notes">
+                  </textarea>
+              </div>-->
+            </tab>
+            <tab *appHasRole="['Admin', 'Staff']"heading="Bachelor's Details">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 160px" name="bachelorsStartDate">Start Date</span>
+                </div>
+                <input type="text" bsDatepicker [bsConfig]="bsConfig" class="form-control" name="bachelorsStartDate"
+                  [(ngModel)]="rowData['BachelorsStartDate']" data-date-format="yyyy-MM-dd">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 160px" name="bachelorsMentor">Bachelor Mentor</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="bachelorsMentor"
+                  [(ngModel)]="rowData.BachelorsMentor" name="bachelorsMentor">
+                  <option *ngFor="let mentor of Advisors_Extra" [value]="mentor.fullname">
+                    {{mentor.fullname}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 160px" name="bachelorsProjectAdvisor">Project
+                    Advisor</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="bachelorsProjectAdvisor"
+                  [(ngModel)]="rowData.BachelorsProjectAdvisor" name="bachelorsProjectAdvisor">
+                  <option *ngFor="let advisor of Advisors_Extra" [value]="advisor.fullname">
+                    {{advisor.fullname}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 160px" name="bachelorsThesisAdvisor">Thesis
+                    Advisor</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="bachelorsThesisAdvisor"
+                  [(ngModel)]="rowData.BachelorsThesisAdvisor" name="bachelorsThesisAdvisor">
+                  <option *ngFor="let advisor of Advisors_Extra" [value]="advisor.fullname">
+                    {{advisor.fullname}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 160px" name="bachelorsProjectTitle">Project Title</span>
+                </div>
+                <input type="text" class="form-control" name="bachelorsProjectTitle"
+                  [(ngModel)]="rowData.BachelorsProjectTitle">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 160px" name="bachelorsThesisTitle">Thesis Title</span>
+                </div>
+                <input type="text" class="form-control" name="bachelorsThesisTitle"
+                  [(ngModel)]="rowData.BachelorsThesisTitle">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 160px" name="bachelorsGradDate">Bachelor Grad Date</span>
+                </div>
+                <input type="text" bsDatepicker [bsConfig]="bsConfig" class="form-control" name="bachelorsGradDate"
+                  [(ngModel)]="rowData.BachelorsGradDate">
+              </div>
+            </tab>
+            <tab *appHasRole="['Admin', 'Staff']"heading="Master's Details">
+              <!--<div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="mastersFocus">Master's Focus</span>
+                </div>
+                <input type="text" class="form-control" name="mastersFocus" [(ngModel)]="user.mastersFocus">
+              </div>-->
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="mastersStartDate">Start Date</span>
+                </div>
+                <input type="text" bsDatepicker [bsConfig]="bsConfig"class="form-control" name="mastersStartDate"
+                  [(ngModel)]="rowData.MastersStartDate">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="mastersProjectAdvisor">Project
+                    Advisor</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="mastersProjectAdvisor"
+                  [(ngModel)]="rowData.MastersProjectAdvisor" name="mastersProjectAdvisor">
+                  <option *ngFor="let mentor of Advisors_Extra" [value]="mentor.fullname">
+                    {{mentor.fullname}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="mastersThesisAdvisor">Thesis
+                    Advisor</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="mastersThesisAdvisor"
+                  [(ngModel)]="rowData.MastersThesisAdvisor" name="mastersThesisAdvisor">
+                  <option *ngFor="let mentor of Advisors_Extra" [value]="mentor.fullname">
+                    {{mentor.fullname}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="mastersCommMember1">Comm. Member
+                    1</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="mastersCommMember1"
+                  [(ngModel)]="rowData.MastersCommMember1" name="mastersCommMember1">
+                  <option *ngFor="let mentor of Advisors_Extra" [value]="mentor.fullname">
+                    {{mentor.fullname}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="mastersCommMember2">Comm. Member
+                    2</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="mastersCommMember2"
+                [(ngModel)]="rowData.MastersCommMember2" name="mastersCommMember2">
+                  <option *ngFor="let mentor of Advisors_Extra" [value]="mentor.fullname">
+                    {{mentor.fullname}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="mastersCommMember3">Comm. Member
+                    3</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="mastersCommMember3"
+                [(ngModel)]="rowData.MastersCommMember3" name="mastersCommMember3">
+                  <option *ngFor="let mentor of Advisors_Extra" [value]="mentor.fullname">
+                    {{mentor.fullname}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 150px" name="mastersCommMember4">Comm. Member
+                    4</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="mastersCommMember4"
+                [(ngModel)]="rowData.MastersCommMember4" name="mastersCommMember4">
+                  <option *ngFor="let mentor of Advisors_Extra" [value]="mentor.fullname">
+                    {{mentor.fullname}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 150px" name="mastersCommMember5">Comm. Member
+                    5</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="mastersCommMember5"
+                [(ngModel)]="rowData.MastersCommMember5" name="mastersCommMember5">
+                  <option *ngFor="let mentor of Advisors_Extra" [value]="mentor.fullname">
+                    {{mentor.fullname}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="mastersCommFormDate">Comm. Form Date</span>
+                </div>
+                <input type="text" bsDatepicker [bsConfig]="bsConfig" class="form-control" name="mastersCommFormDate"
+                  [(ngModel)]="rowData.MastersCommFormedDate">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="mastersDefenseDate">Defense Date</span>
+                </div>
+                <input type="text" bsDatepicker [bsConfig]="bsConfig" class="form-control" name="mastersDefenseDate"
+                  [(ngModel)]="rowData.MastersDefenseDate">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="mastersProjectTitle">Project Title</span>
+                </div>
+                <input type="text" class="form-control" name="mastersProjectTitle"
+                  [(ngModel)]="rowData.MastersProjectTitle">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="mastersThesisTitle">Thesis Title</span>
+                </div>
+                <input type="text" class="form-control" name="matersThesisTitle" [(ngModel)]="rowData.MastersThesisTitle">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="mastersGradDate">MS Grad Date</span>
+                </div>
+                <input type="text" bsDatepicker [bsConfig]="bsConfig" class="form-control" name="mastersGradDate"
+                  [(ngModel)]="rowData.MastersGradDate">
+              </div>
+            </tab>
+            <!--<tab *appHasRole="['Admin', 'Staff']"heading="PhD Details">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="doctoralCandidate">Candidate</span>
+                </div>
+                <input type="text" class="form-control" name="doctoralCandidate" [(ngModel)]="user.doctoralCandidate">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="doctorateStartDate">Start Date</span>
+                </div>
+                <input type="text" bsDatepicker [bsConfig]="bsConfig" class="form-control" name="doctorateStartDate"
+                  [(ngModel)]="user.doctorateStartDate">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="acceptDate">Accept Date</span>
+                </div>
+                <input type="text" bsDatepicker [bsConfig]="bsConfig" class="form-control" name="acceptDate"
+                  [(ngModel)]="user.dateAcceptedForCandidacy">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="mastersProjectAdvisor">Doct.
+                    Advisor</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="mastersProjectAdvisor"
+                  [(ngModel)]="user.mastersProjectAdvisor" name="mastersProjectAdvisor">
+                  <option *ngFor="let mentor of faculty" [value]="mentor.fullName">
+                    {{mentor.fullName}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="doctorateCommMember1">Comm. Member
+                    1</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="doctorateCommMember1"
+                  [(ngModel)]="user.doctorateCommMember1" name="doctorateCommMember1">
+                  <option *ngFor="let mentor of faculty" [value]="mentor.fullName">
+                    {{mentor.fullName}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="doctorateCommMember2">Comm. Member
+                    2</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="doctorateCommMember2"
+                  [(ngModel)]="user.doctorateCommMember2" name="doctorateCommMember2">
+                  <option *ngFor="let mentor of faculty" [value]="mentor.fullName">
+                    {{mentor.fullName}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="doctorateCommMember3">Comm. Member
+                    3</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="doctorateCommMember3"
+                  [(ngModel)]="user.doctorateCommMember3" name="doctorateCommMember3">
+                  <option *ngFor="let mentor of faculty" [value]="mentor.fullName">
+                    {{mentor.fullName}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="doctorateCommMember4">Comm. Member
+                    4</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="doctorateCommMember4"
+                  [(ngModel)]="user.doctorateCommMember4" name="doctorateCommMember4">
+                  <option *ngFor="let mentor of faculty" [value]="mentor.fullName">
+                    {{mentor.fullName}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="doctorateCommMember5">Comm. Member
+                    5</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="doctorateCommMember5"
+                  [(ngModel)]="user.doctorateCommMember5" name="doctorateCommMember5">
+                  <option *ngFor="let mentor of faculty" [value]="mentor.fullName">
+                    {{mentor.fullName}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 145px" name="doctorateCommMember6">Comm. Member
+                    6</span>
+                </div>
+                <select class="custom-select" style="width: 160px" id="doctorateCommMember6"
+                  [(ngModel)]="user.doctorateCommMember6" name="doctorateCommMember6">
+                  <option *ngFor="let mentor of faculty" [value]="mentor.fullName">
+                    {{mentor.fullName}}
+                  </option>
+                </select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="doctorateCommFormDate">Comm. Form Date</span>
+                </div>
+                <input type="text" bsDatepicker [bsConfig]="bsConfig" class="form-control"
+                  name="doctorateCommFormDate" [(ngModel)]="user.doctorateCommFormDate">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="dissertationDefenseDate">Defense Date</span>
+                </div>
+                <input type="text" bsDatepicker [bsConfig]="bsConfig" class="form-control"
+                  name="dissertationDefenseDate" [(ngModel)]="user.dissertationDefenseDate">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="dissertationTitle">Diss. Title</span>
+                </div>
+                <input type="text" class="form-control" name="dissertationTitle" [(ngModel)]="user.dissertationTitle">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" style="width: 140px" name="doctorateGradDate">Grad. Date</span>
+                </div>
+                <input type="text" bsDatepicker [bsConfig]="bsConfig" class="form-control" name="doctorateGradDate"
+                  [(ngModel)]="user.doctorateGradDate">
+              </div>
+            </tab>-->
+            <tab *appHasRole="['Staff','Student','Faculty']"heading="Photos">
+              <app-photo-editor [photos]="user.photos" 
+              (getMemberPhotoChange)="updateMainPhoto($event)">
+              </app-photo-editor>
+            </tab>
+            <tab *appHasRole="['Staff','Student','Faculty']"heading="File Upload" >
+              <app-thesisproject [usrInfo]="user">
+              </app-thesisproject>
+            </tab>
+          </tabset>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+  
+<!--<div class="container mt-4">
+  <div class="row">
+      <div class="col-sm-4">
+        <button class=" mr-5" [routerLink]="['/members']"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <h1>Your Profile</h1>
+      </div>
+      <div class="col-sm-8">
+        <div *ngIf="editForm.dirty" class="alert alert-info">
+          <strong>Information:</strong> You have made changes. Any unsaved changes will be lost!
+        </div>
+      </div>
+  </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <img class="card-img-top img-thumbnail" src="{{user.photoUrl || '../../../assets/user.png'}}" alt="{{user.knownAs}}">
+          <div class="card-body">
+            <div>
+              <strong>Name:</strong>
+              <p>{{ user.firstName }} {{ user.lastName }}</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">Save Changes</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="tab-panel">
+          <tabset class="member-tabset">
+            <tab heading="About {{ user.firstName }}">
+              <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style="width: 140px" name="userID">Student ID</span>
+                  </div>
+                  <input readonly type="text" class="form-control" name="userID" [(ngModel)]="user.username">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style="width: 140px" name="firstName">First Name</span>
+                  </div>
+                  <input readonly type="text" class="form-control" name="firstName" [(ngModel)]="user.firstName">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style="width: 140px" name="middleName">Middle Name</span>
+                  </div>
+                  <input readonly type="text" class="form-control" name="middleName" [(ngModel)]="user.middleName">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style="width: 140px" name="lastName">Last Name</span>
+                  </div>
+                  <input readonly type="text" class="form-control" name="lastName" [(ngModel)]="user.lastName">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style="width: 140px" name="degreeProgram">Degree Program</span>
+                  </div>
+                  <input readonly type="text" class="form-control" name="degreeProgam" [(ngModel)]="user.degreeProgram">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" style="width: 140px" name="currentProgram">Current Program</span>
+                  </div>
+                  <input readonly type="text" class="form-control" name="currentProgam" [(ngModel)]="user.currentProgram">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 140px" name="currentAcademicLevel">Academic
+                        Level</span>
+                    </div>
+                    <input readonly type="text" class="form-control" name="currentAcademicLevel"
+                      [(ngModel)]="user.currentAcademicLevel">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 140px" name="email">Email</span>
+                    </div>
+                    <input readonly type="text" class="form-control" name="email" [(ngModel)]="user.email">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 140px" name="phoneNumber">Phone #</span>
+                    </div>
+                    <input readonly type="text" class="form-control" name="phoneNumber" [(ngModel)]="user.phoneNumber1">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 140px" name="alPhoneNumber">Alt Phone #</span>
+                    </div>
+                    <input type="text" class="form-control" name="altPhoneNumber" [(ngModel)]="user.phoneNumber2">
+                </div>
+                <div class="input-group mb-3" style="height: 300px">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" style="width: 140px" name="notes">Notes</span>
+                    </div>
+                    <textarea class="form-control" name="notes" [(ngModel)]="user.notes">
+                      </textarea>
+                </div>
+              </form>
+            </tab>
+            <tab heading="Edit Photos">
+              <app-photo-editor [photos]="user.photos" 
+              (getMemberPhotoChange)="updateMainPhoto($event)">
+              </app-photo-editor>
+            </tab>
+          </tabset>
+        </div>
+    </div>
+  </div>
+</div>-->

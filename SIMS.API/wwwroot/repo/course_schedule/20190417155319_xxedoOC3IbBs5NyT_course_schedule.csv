@@ -1,0 +1,7 @@
+courseNum,section,creditHours,courseTitle,crn,maxStudent,weekday,instructor,scheduleStartTime,scheduleEndTime,room,notes,semesterTime
+200B,1,3,Computer Concepts,63046,20,Monday,Rachamalla,13:00,13:50,EGRA 420,lab R in ASA 112E,Fall 2019
+200B,1,3,Computer Concepts,63046,20,Wednesday,Rachamalla,13:00,13:50,EGRA 420,lab R in ASA 112E,Fall 2019
+200B,1,3,Computer Concepts,63046,20,Friday,Rachamalla,13:00,13:50,EGRA 420,lab R in ASA 112E,Fall 2019
+201,1,3,Problem Solv w/ Computers,67507,25,Monday,Ahmed,09:00,09:50,EGRA 219,Various 50 mins labs,Fall 2019
+201,1,3,Problem Solv w/ Computers,67507,25,Wednesday,Ahmed,09:00,09:50,EGRA 219,Various 50 mins labs,Fall 2019
+202,1,4,Intro to Computer Science,63052,25,Monday,Ahmed,11:00,11:50,EGRA 219,Intro Courses, Fall 2019

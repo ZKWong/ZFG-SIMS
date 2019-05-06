@@ -1,0 +1,78 @@
+<div class="row justify-content-center mt-2">
+  <h3 class="text-center text-primary">CS Department - Faculty</h3>
+</div>
+<div class="row mt-3">
+  <div class="col text-center">
+    <input type="file" ng2FileSelect [uploader]="uploader" [(ngModel)]="facultyData.fileName" name="fileName">
+    <button class="btn btn-primary" (click)="importfacultydata()" style="margin-left:10px">Import Faculty Data</button>
+  </div>
+</div>
+<div class="row justify-content-center mt-1 ml-1">
+  <div class="col-12">
+    <div class="row mt-3">
+      <div class="col-12">
+        <ag-grid-angular 
+          #agGrid 
+          id="importuserdataGrid"
+          class="ag-theme-balham" 
+          [rowData]="rowData" 
+          [columnDefs]="columnDefs"
+          [enableSorting]="true"
+          [enableFilter]="true"
+          [pagination]="true"
+          [paginationPageSize]="20"
+          (gridReady)="onGridReady($event)"
+          (rowClicked)="onGridClicked($event)">
+        </ag-grid-angular>
+      </div>
+      <!--<div class="col-5">
+        <div class="row">
+          <div class="col-3"><h6>First Name:</h6></div>
+          <div class="col"><label>{{rowClicked.first_name}}</label></div>
+        </div>
+        <div class="row">
+          <div class="col-3"><h6>Last Name:</h6></div>
+          <div class="col"><label>{{rowClicked.last_name}}</label></div>
+        </div>
+        <div class="row">
+          <div class="col-3"><h6>Title:</h6></div>
+          <div class="col"><label>{{rowClicked.title}}</label></div>
+        </div>
+        <div class="row">
+          <div class="col-3"><h6>Office:</h6></div>
+          <div class="col"><label>{{rowClicked.office}}</label></div>
+        </div>
+        <div class="row">
+          <div class="col-3"><h6>Phone:</h6></div>
+          <div class="col"><label>{{rowClicked.phone}}</label></div>
+        </div>
+        <div class="row">
+          <div class="col-3"><h6>Research Int:</h6></div>
+          <div class="col"><label>{{rowClicked.research_interest}}</label></div>
+        </div>
+        <div class="row">
+          <div class="col-3"><h6>Designation:</h6></div>
+          <div class="col"><label>{{rowClicked.designation}}</label></div>
+        </div>
+        <div class="row">
+          <div class="col-3"><h6>Title:</h6></div>
+          <div class="col"><label>{{rowClicked.title}}</label></div>
+        </div>
+        <div class="row">
+          <div class="col-3"><h6>Email:</h6></div>
+          <div class="col"><label>{{rowClicked.email}}</label></div>
+        </div>
+        <div class="row">
+          <div class="col-3"><h6>Home Page:</h6></div>
+          <div class="col"><label>{{rowClicked.homepage}}</label></div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <input type="file" ng2FileSelect [uploader]="uploader" [(ngModel)]="facultyData.fileName" name="fileName">
+            <button class="btn btn-primary" (click)="importfacultydata()" style="margin-left:10px">Import Faculty Data</button>
+          </div>
+        </div>
+      </div>-->
+    </div>
+  </div>
+</div>

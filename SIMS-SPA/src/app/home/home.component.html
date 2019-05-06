@@ -1,0 +1,30 @@
+
+<div class="bg">
+    <div *ngIf="!registerMode" style="text-align: center">
+      <h1><img src="assets/image/SIUlogo_square.png" class="rounded" alt="siulogo" width="400" height="300">CS Student Information Management System</h1>
+    </div>
+</div>
+<!--<div>
+  <div *ngIf="!registerMode" style="text-align: center">
+    <h5><img src="assets/image/logo.jpg" class="rounded mt-3 mr-2" alt="siulogo" width="200" height="200">
+      SIMS provides SIU staff, faculty, and student access to information within the Computer Science department.
+      Users can access it anywhere and anytime
+    </h5>
+  </div>
+</div>-->
+<div class="container">
+    <div *ngIf="!registerMode" class="row" >
+      <div class="col mt-3">
+       <h4 class ="title"> SIMS provides SIU staff, faculty, and student access to information within the Computer Science department.</h4>
+      </div>
+      <div class="col mt-2" style="text-align: center">
+          <img src="assets/image/logo.jpg" class="rounded" alt="siulogo" width="250" height="260">
+      </div>
+  </div>
+<!--<div *ngIf="registerMode" class="container">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+        </div>
+      </div>
+    </div>-->

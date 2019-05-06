@@ -1,0 +1,210 @@
+<div>
+  <h2>{{modalTitle}}</h2>
+  <div class="form" *ngIf="modalType == 0 || modalType == 1">
+      <div class="left">
+          <form (ngSubmit)="onSubmit(courseform)"  [formGroup]="courseform">
+              <div class="rw">
+                  <mat-form-field style="width: 140px">
+                      <input matInput placeholder="Course Number" formControlName="courseNum">
+                  </mat-form-field>
+                  <mat-form-field style="width: 300px">
+                      <input matInput placeholder="Course Title" formControlName="courseTitle">
+                  </mat-form-field>
+                  <mat-form-field style="width: 140px">
+                      <input matInput placeholder="Section" formControlName="section">
+                  </mat-form-field>
+              </div>
+              <div class="rw">
+                  <mat-form-field style="width: 300px">
+                      <input matInput placeholder="From" [ngxTimepicker]="picker1" formControlName="scheduleStartTime" [format]="24"  readonly>
+                      <ngx-material-timepicker #picker1></ngx-material-timepicker>
+                  </mat-form-field>
+                  <mat-form-field style="width: 300px">
+                      <input matInput placeholder="To" [ngxTimepicker]="picker2" formControlName="scheduleEndTime" [format]="24"  readonly>
+                      <ngx-material-timepicker #picker2></ngx-material-timepicker>
+                  </mat-form-field>
+              </div>
+              <div class="rw">
+                  <mat-form-field style="width: 300px">
+                      <input matInput placeholder="Instructor" formControlName="instructor">
+                  </mat-form-field>
+                  <mat-form-field style="width: 300px">
+                      <input matInput placeholder="Room" formControlName="room">
+                  </mat-form-field>
+              </div>
+              <div class="rw">
+                  <mat-form-field style="width: 190px">
+                      <input matInput placeholder="Credit Hours" formControlName="creditHours">
+                  </mat-form-field>
+                  <mat-form-field style="width: 200px">
+                      <input matInput placeholder="CRN" formControlName="crn">
+                  </mat-form-field>
+                  <mat-form-field style="width: 190px">
+                      <input matInput placeholder="Maximum Students" formControlName="maxStudent">
+                  </mat-form-field>
+              </div>
+              <div class="rw">
+                  <mat-form-field style="width: 620px">
+                      <input matInput placeholder="Notes">
+                  </mat-form-field>
+              </div>
+              <div class="form-btns">
+                  <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>
+                  <button type="submit" mat-raised-button color="primary" >Save</button>
+              </div>
+          </form>
+      </div>
+      <div class="right">
+          <p>Day</p>
+          <mat-checkbox class="example-margin" [(ngModel)]="Monday">Monday</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="Tuesday">Tuesday</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="Wednesday">Wednesday</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="Thursday">Thursday</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="Friday">Friday</mat-checkbox>
+      </div>
+  </div>
+  <div class="detail" *ngIf="modalType == 4">
+      <div class="rw">
+          <p>
+              <span>Weekday: </span>{{detail.weekday}}
+          </p>
+          <p>
+              <span>Schedule Type: </span>{{detail.scheduleType == 1 ? 'Experiment' : 'Normal'}}
+          </p>
+      </div>
+      <div class="rw">
+          <p>
+              <span>Course Number: </span>{{detail.courseNum}}
+          </p>
+          <p>
+              <span>Course Title: </span>{{detail.courseTitle}}
+          </p>
+          <p>
+              <span>Section: </span>{{detail.section}}
+          </p>
+      </div>
+      <div class="rw">
+          <p>
+              <span>From: </span>{{detail.scheduleStartTime}}
+          </p>
+          <p>
+              <span>To: </span>{{detail.scheduleEndTime}}
+          </p>
+      </div>
+      <div class="rw">
+          <p>
+              <span>Instructor: </span>{{detail.instructor}}
+          </p>
+          <p>
+              <span>Room: </span>{{detail.room}}
+          </p>
+      </div>
+      <div class="rw">
+          <p>
+              <span>Credit Hours: </span>{{detail.creditHours}}
+          </p>
+          <p>
+              <span>CRN: </span>{{detail.crn}}
+          </p>
+          <p>
+              <span>Maximum Students: </span>{{detail.maxStudent}}
+          </p>
+      </div>
+      <div class="rw">
+          <p>
+              <span>Notes: </span>{{detail.notes}}
+          </p>
+      </div>
+      <div class="form-btns">
+          <button type="button" mat-raised-button (click)="dialogRef.close()">Cancel</button>
+          <button type="button" mat-raised-button color="warn" (click)="queryDelete()">Delete</button>
+      </div>
+  </div>
+  <div class="form" *ngIf="modalType == 2">
+      <form  (ngSubmit)="onSubmit(courseform)"  [formGroup]="courseform">
+          <div class="rw">
+              <mat-form-field style="width: 300px">
+                  <input matInput placeholder="From" [ngxTimepicker]="picker1" formControlName="scheduleStartTime" [format]="24"  readonly>
+                  <ngx-material-timepicker #picker1></ngx-material-timepicker>
+              </mat-form-field>
+              <mat-form-field style="width: 300px">
+                  <input matInput placeholder="To" [ngxTimepicker]="picker2" formControlName="scheduleEndTime" [format]="24"  readonly>
+                  <ngx-material-timepicker #picker2></ngx-material-timepicker>
+              </mat-form-field>
+          </div>
+          <div class="form-btns">
+              <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>
+              <button type="submit" mat-raised-button color="primary" >Save</button>
+          </div>
+      </form>
+  </div>
+  <div class="form" *ngIf="modalType == 3">
+      <div class="left">
+          <div class="detail">
+              <div class="rw">
+                  <p>
+                      <span>Weekday: </span>{{detail.weekday}}
+                  </p>
+                  <p>
+                      <span>Schedule Type: </span>{{detail.scheduleType == 1 ? 'Experiment' : 'Normal'}}
+                  </p>
+              </div>
+              <div class="rw">
+                  <p>
+                      <span>Course Number: </span>{{detail.courseNum}}
+                  </p>
+                  <p>
+                      <span>Course Title: </span>{{detail.courseTitle}}
+                  </p>
+                  <p>
+                      <span>Section: </span>{{detail.section}}
+                  </p>
+              </div>
+              <div class="rw">
+                  <p>
+                      <span>From: </span>{{detail.scheduleStartTime}}
+                  </p>
+                  <p>
+                      <span>To: </span>{{detail.scheduleEndTime}}
+                  </p>
+              </div>
+              <div class="rw">
+                  <p>
+                      <span>Instructor: </span>{{detail.instructor}}
+                  </p>
+                  <p>
+                      <span>Room: </span>{{detail.room}}
+                  </p>
+              </div>
+              <div class="rw">
+                  <p>
+                      <span>Credit Hours: </span>{{detail.creditHours}}
+                  </p>
+                  <p>
+                      <span>CRN: </span>{{detail.crn}}
+                  </p>
+                  <p>
+                      <span>Maximum Students: </span>{{detail.maxStudent}}
+                  </p>
+              </div>
+              <div class="rw">
+                  <p>
+                      <span>Notes: </span>{{detail.notes}}
+                  </p>
+              </div>
+              <div class="form-btns">
+                  <button type="button" mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>
+                  <button type="button" mat-raised-button color="primary" (click)="saveCopy()">Save</button>
+              </div>
+          </div>
+      </div>
+      <div class="right">
+          <p>Day</p>
+          <mat-checkbox class="example-margin" [(ngModel)]="Monday" [disabled]="detail.weekday == 'Monday'">Monday</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="Tuesday" [disabled]="detail.weekday == 'Tuesday'">Tuesday</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="Wednesday" [disabled]="detail.weekday == 'Wednesday'">Wednesday</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="Thursday" [disabled]="detail.weekday == 'Thursday'">Thursday</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="Friday" [disabled]="detail.weekday == 'Friday'">Friday</mat-checkbox>
+      </div>
+  </div>
+</div>

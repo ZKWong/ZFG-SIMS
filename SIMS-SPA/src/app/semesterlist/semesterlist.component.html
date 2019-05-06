@@ -1,0 +1,50 @@
+<div class="spinner" *ngIf="loadingState; else semesterlist">
+  <mat-spinner></mat-spinner>
+</div> 
+
+<ng-template class="semesterlist" #semesterlist>
+<h2 class="ml-2 text-center">Semesters</h2>
+<div class="semesterlist-container mat-elevation-z8 ml-2 mr-2 mt-3">
+  <div class="row">
+    <div class="col">
+      <button title="Create" mat-raised-button color="accent" (click)="addSemester()">Create New Semester</button>
+    </div>
+    <div class="col">
+        <input type="file" ng2FileSelect [uploader]="uploader" [(ngModel)]="importFile.fileName" name="fileName">
+        <button mat-raised-button color="accent" (click)="importsemester()" style="margin-left:10px">Import Semester List</button>
+    </div>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource">
+
+    <!-- SemesterTime Column -->
+    <ng-container matColumnDef="semester">
+      <mat-header-cell *matHeaderCellDef> semester </mat-header-cell>
+      <mat-cell *matCellDef="let element"><a [routerLink]="['/timetable', element.id]" class="link">{{element.semesterTime}}</a>  </mat-cell>
+    </ng-container>
+
+    <!-- From Column -->
+    <ng-container matColumnDef="from">
+      <mat-header-cell *matHeaderCellDef> from </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.from | date: 'MM/dd/yyyy' }} </mat-cell>
+    </ng-container>
+
+    <!-- To Column -->
+    <ng-container matColumnDef="to">
+    <mat-header-cell *matHeaderCellDef> to </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.to | date: 'MM/dd/yyyy' }} </mat-cell>
+    </ng-container>      
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell  *matHeaderCellDef> Action </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button title="Edit" mat-raised-button color="primary" (click)="editSemester(element.id)">Edit</button>
+        <button title="Delete" mat-raised-button color="warn" (click)="deleteSemester(element.id)">Delete</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+</ng-template>

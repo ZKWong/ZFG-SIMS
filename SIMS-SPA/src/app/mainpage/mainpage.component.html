@@ -1,0 +1,133 @@
+<section class="after-loop ">
+    <div class="container ">
+        <div class="row  mb-3">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <a *appHasRole="['Admin', 'Staff']"[routerLink]="['/semesterlist']" class="after-loop-item card border-0 card-templates shadow-lg">
+                    <div class="card-body d-flex align-items-end flex-column text-right">
+                        <h4>Semesters</h4>
+                        <p class="w-75">List of Semesters</p>
+                        <i class="fa fa-bars fa-fw"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <a *appHasRole="['Admin', 'Staff']"[routerLink]="['/timetable/1']" class="after-loop-item card border-0 card-templates shadow-lg">
+                    <div class="card-body d-flex align-items-end flex-column text-right">
+                        <h4>Course Scheduling </h4>
+                        <p class="w-75">Schedule Courses</p>
+                        <i class="fa fa-calendar fa-fw"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-6 col-md-8 mb-5 mb-lg-0 mx-auto">
+                <a *appHasRole="['Admin', 'Staff']"[routerLink]="['/exitsurveysview']"class="after-loop-item card border-0 card-templates shadow-lg">
+                    <div class="card-body d-flex align-items-end flex-column text-right">
+                        <h4>View Exit Survey</h4>
+                        <p class="w-75">Show Record of Exit Surveys</p>
+                        <i class="fa fa-list fa-fw"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-6 col-md-8 mb-5 mb-lg-0 mx-auto">
+                <a *appHasRole="['Admin', 'Staff']"[routerLink]="['/gradseniorsurveysview']"class="after-loop-item card border-0 card-templates shadow-lg">
+                    <div class="card-body d-flex align-items-end flex-column text-right">
+                        <h4>View Senior Survey</h4>
+                        <p class="w-75">Show Record of Senior Surveys</p>
+                        <i class="fa fa-list-alt fa-fw"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-lg-6 col-md-8 mb-5 mb-lg-0 mx-auto">
+                <a *appHasRole="['Admin','Staff','Faculty']"[routerLink]="['/members']"class="after-loop-item card border-0 card-templates shadow-lg">
+                    <div class="card-body d-flex align-items-end flex-column text-right">
+                        <h4>Students</h4>
+                        <p class="w-75">List of Students</p>
+                        <i class="fa fa-users fa-fw"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <a *appHasRole="['Admin', 'Staff', 'Advisor','Faculty']" [routerLink]="['/thesisproject']"class="after-loop-item card border-0 card-templates shadow-lg">
+                    <div class="card-body d-flex align-items-end flex-column text-right">
+                        <h4>Thesis / Project</h4>
+                        <p class="w-75">Update Thesis / Project option</p>
+                        <i class="fa fa-pencil-square fa-fw"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row  mb-3">
+                <div class="col-lg-6 col-md-8 mb-5 mb-lg-0 mx-auto">
+                    <a *appHasRole="['Admin','Staff']" [routerLink]="['/admin']" class="after-loop-item card border-0 card-templates shadow-lg">
+                        <div class="card-body d-flex align-items-end flex-column text-right">
+                            <h4>Account Management</h4>
+                            <p class="w-75">Assign Role and Delete Users</p>
+                            <i class="fa fa-user-times"></i>
+                         </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-8 mb-5 mb-lg-0 mx-auto">
+                    <a *appHasRole="['Admin', 'Staff']" [routerLink]="['/importfacultydata']" class="after-loop-item card border-0 card-templates shadow-lg">
+                        <div class="card-body d-flex align-items-end flex-column text-right">
+                            <h4>Faculty</h4>
+                            <p class="w-75">List of Faculty</p>
+                            <i class="fa fa-university fa-fw"></i>
+                        </div>
+                    </a>
+                </div>
+        </div>
+        <div class="row  mb-3">
+                <!--<div class="col-lg-6 col-md-8 mx-auto">
+                    <a *appHasRole="['Admin', 'Staff']"[routerLink]="['/courses']" class="after-loop-item card border-0 card-templates shadow-lg">
+                        <div class="card-body d-flex align-items-end flex-column text-right">
+                            <h4>Courses</h4>
+                            <p class="w-75">Display Courses</p>
+                            <i class="fa fa-book fa-fw"></i>
+                        </div>
+                    </a>
+                </div>
+             <div class="col-lg-6 col-md-8 mx-auto">
+                <a *appHasRole="['Admin', 'Staff']" [routerLink]="['/coursesoffer']"class="after-loop-item card border-0 card-templates shadow-lg">
+                    <div class="card-body d-flex align-items-end flex-column text-right">
+                        <h4>Courses Offer</h4>
+                        <p class="w-75">Insert offered courses</p>
+                        <i class="fa fa-address-book fa-fw"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-8 mx-auto">
+                <a *appHasRole="['Admin', 'Staff']" [routerLink]="['/coursescheduler']"class="after-loop-item card border-0 card-templates shadow-lg">
+                    <div class="card-body d-flex align-items-end flex-column text-right">
+                        <h4> Old Course Scheduling</h4>
+                        <p class="w-75">Schedule Courses</p>
+                        <i class="fa fa-calendar fa-fw"></i>
+                    </div>
+                 </a>
+            </div>-->
+        </div>
+        <div class="row  mb-3">
+            <div class="col-lg-6 col-md-8 mb-5 mb-lg-0 mx-auto">
+                <a *appHasRole="['Student']"[routerLink]="['/exitsurveys']"class="after-loop-item card border-0 card-templates shadow-lg">
+                    <div class="card-body d-flex align-items-end flex-column text-right">
+                        <h4>Fill Exit Survey</h4>
+                        <p class="w-75">Fill Up Student Exit Survey</p>
+                        <i class="fa fa-file fa-fw"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-6 col-md-8 mb-5 mb-lg-0 mx-auto">
+                <a *appHasRole="['Student']"[routerLink]="['/gradseniorsurveys']"class="after-loop-item card border-0 card-templates shadow-lg">
+                    <div class="card-body d-flex align-items-end flex-column text-right">
+                        <h4>Fill Senior Survey</h4>
+                        <p class="w-75">Fill Up Graduating Senior Survey</p>
+                        <i class="fa fa-graduation-cap fa-fw"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

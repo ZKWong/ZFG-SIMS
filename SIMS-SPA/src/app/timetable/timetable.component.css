@@ -1,0 +1,154 @@
+.course {
+    position: relative;
+    display: flex;
+    border: 3px solid #ddd;
+}
+.course .time {
+    width: 100px;
+}
+.course .weekday {
+    flex: 1;
+    position: relative;
+    border-left: 1px solid #ddd;
+}
+.course-anyday .weekday-anyday {
+    flex: 1;
+    position: relative;
+}
+
+.course .tit {
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    font-weight: bold;
+}
+.course .c_row {
+    padding-left: 2px;
+    height: 80px;
+    line-height: 80px;
+}
+.course .c_row:nth-child(odd) {
+    background-color:#d4d8dd;
+}
+
+.course-layout {
+    position: relative;
+}
+.course-time {
+    width: 300px;
+}
+
+.course-layout-anyday {
+    position: relative
+}
+
+
+.create {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    color: #fff;
+    font-size: 30px;
+    background-color: #6abd60;
+}
+
+.course-item {
+    position: absolute;
+    top: 2%;
+    bottom: 10%;
+    display: flex;
+    align-items: center;
+    width: 35px;
+    min-height: 52px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1;
+    border: 2px solid #6abd60;
+    cursor: pointer;
+}
+.course-item p {
+    margin: 0;
+    width: 100%;
+}
+.course-item span {
+    display: block;
+    padding: 3px 0;
+}
+/* .course-item + .course-item {
+    margin-left: 54px;
+} */
+.is-experiment {
+    border-color: #10a7ef;
+}
+
+.course-btns {
+    display: flex;
+    justify-content: space-between;
+}
+.course-btns button  + button {
+    margin-left: 10px;
+}
+
+.loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+}
+
+.cdk-drag-placeholder {
+    background: #ccc;
+    border: dotted 1px #999;
+    transition: transform 500ms ease;
+}
+.del {
+    display: inline-block;
+    width: 50px;
+    height: 36px;
+    text-align: center;
+    line-height: 1;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.del .mat-icon {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+}
+
+.tips {
+    padding-left: 40px;
+    color: #f44336;
+    font-size: 20px;
+}
+.tips button {
+    margin-left: 10px;
+}
+
+
+
+.is-choose .course-item {
+    border: 2px dashed #f44336;
+}
+.is-choose .course-item:hover {
+    border-color: #6abd60;
+}
+
+.important-tip {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #f44336;
+}
+
+.course-choice-toolbutton-container {
+    width: 80px;
+    max-width: 100%;
+    margin: 0 10px 10px 0;
+    display: inline-block;
+    vertical-align: top;
+  } 
+  .mt-6 {
+    margin-top: 60px !important
+  }
+  

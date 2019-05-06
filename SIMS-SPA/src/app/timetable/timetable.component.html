@@ -1,0 +1,381 @@
+<div class="row mt-2">
+    <div class="col-10">
+        <div class="row">
+            <label class ="ml-4">Semester:</label>
+            <select class="ml-2" (change)="onSelectSemester($event.target.value)" [(ngModel)]="sem_select.Id">
+                <option *ngFor="let semester of semesters" [ngValue]= "semester.Id">{{semester.SemesterTime}}</option>
+            </select>
+            <label class ="ml-2">Courses:</label>
+            <select class="ml-2" (change)="onSelectCourseSeries($event.target.value)" [(ngModel)]="Course_Prefix">
+                <option *ngFor="let kourse_prefix of Course_Series" [ngValue]= "kourse_prefix">{{kourse_prefix}}</option>
+            </select>
+            <button class="ml-1" mat-raised-button color="primary" (click)="saveCourse()">Save Changes</button>
+            <button class="ml-1" mat-raised-button (click)="exportExcel()"><mat-icon>save_alt</mat-icon> Export</button>
+            <button class="ml-1" mat-raised-button (click)="isCopy = !isCopy">Copy</button>
+            <button class="ml-1" mat-raised-button (click)="isExperiment = !isExperiment">Lab</button>
+            <button class="ml-1" mat-raised-button (click)="importcourse_schedule()"><mat-icon>open_in_browser</mat-icon> Import</button>
+            <button class="ml-1" mat-raised-button (click)="fileInput.click()"><mat-icon>folder_open</mat-icon> Browse..</button>
+            <span class="ml-1">{{selectFile}}</span>
+        </div>
+    </div>
+    <div class="col-2">
+        <span class="del mr-2" style="float: right" dnd-droppable (onDropSuccess)="deleteCourse($event)"><mat-icon>delete</mat-icon></span>
+    </div>
+</div>
+<div class="row ml-1 mt-2 mr-1">
+    <div class="course-anyday">
+        <div class="weekday-anyday">
+            <div class="course-layout" dnd-droppable (onDropSuccess)="drop1($event)">
+                <div class="c_row"></div>
+                <div class="c_row"></div>
+                <div class="c_row"></div>
+                <div class="c_row"></div>
+                <div class="c_row"></div>
+                <div class="c_row"></div>
+                <div class="c_row"></div>
+                <div class="c_row"></div>
+                <div class="c_row"></div>
+                <div class="c_row"></div>
+                <div class="c_row"></div>
+                <div class="c_row"></div>
+                <div class="c_row"></div>
+                <div class="course-item " *ngFor="let course of Choiceday" [ngClass]="{'is-experiment': course.scheduleType == 1}" (click)="detail(course)"
+                    [ngStyle]="{'top': course.top + '%', 'bottom': course.bottom + '%', 'left': course.left + 'px'}"
+                    dnd-draggable [dragEnabled]="true" [dragData]="course">
+                    <p>
+                        <span>{{course.courseNum}}</span>
+                        <span>{{course.room}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row ml-1 mt-6 mr-1">
+    <div class="course col-12" [ngClass]="{'is-choose': isCopy || isExperiment}" id="courseTable">
+            <mat-spinner class="loading" *ngIf="isLoading"></mat-spinner>
+            <div class="time">
+                <div class="tit"></div>
+                <div class="course-layout">
+                    <div class="c_row">8:00</div>
+                    <div class="c_row">9:00</div>
+                    <div class="c_row">10:00</div>
+                    <div class="c_row">11:00</div>
+                    <div class="c_row">12:00</div>
+                    <div class="c_row">13:00</div>
+                    <div class="c_row">14:00</div>
+                    <div class="c_row">15:00</div>
+                    <div class="c_row">16:00</div>
+                    <div class="c_row">17:00</div>
+                    <div class="c_row">18:00</div>
+                    <div class="c_row">19:00</div>
+                    <div class="c_row">20:00</div>
+                </div>
+            </div>
+            <div class="weekday">
+                <div class="tit">Monday</div>
+                <div class="course-layout" dnd-droppable (onDropSuccess)="drop1($event)">
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="course-item" *ngFor="let course of Monday" [ngClass]="{'is-experiment': course.scheduleType == 1}" (click)="detail(course)"
+                        [ngStyle]="{'top': course.top + '%', 'bottom': course.bottom + '%', 'left': course.left + 'px'}"
+                        dnd-draggable [dragEnabled]="true" [dragData]="course">
+                        <p>
+                            <span>{{course.courseNum}}</span>
+                            <span>{{course.room}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="weekday">
+                <div class="tit">Tuesday</div>
+                <div class="course-layout" dnd-droppable (onDropSuccess)="drop2($event)">
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="course-item" *ngFor="let course of Tuesday" [ngClass]="{'is-experiment': course.scheduleType == 1}" (click)="detail(course)"
+                        [ngStyle]="{'top': course.top + '%', 'bottom': course.bottom + '%', 'left': course.left + 'px'}"
+                        dnd-draggable [dragEnabled]="true" [dragData]="course">
+                        <p>
+                            <span>{{course.courseNum}}</span>
+                            <span>{{course.room}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="weekday">
+                <div class="tit">Wednesday</div>
+                <div class="course-layout" dnd-droppable (onDropSuccess)="drop3($event)">
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="course-item" *ngFor="let course of Wednesday" [ngClass]="{'is-experiment': course.scheduleType == 1}" (click)="detail(course)"
+                        [ngStyle]="{'top': course.top + '%', 'bottom': course.bottom + '%', 'left': course.left + 'px'}"
+                        dnd-draggable [dragEnabled]="true" [dragData]="course">
+                        <p>
+                            <span>{{course.courseNum}}</span>
+                            <span>{{course.room}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="weekday">
+                <div class="tit">Thursday</div>
+                <div class="course-layout" dnd-droppable (onDropSuccess)="drop4($event)">
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="course-item" *ngFor="let course of Thursday" [ngClass]="{'is-experiment': course.scheduleType == 1}" (click)="detail(course)"
+                        [ngStyle]="{'top': course.top + '%', 'bottom': course.bottom + '%', 'left': course.left + 'px'}"
+                        dnd-draggable [dragEnabled]="true" [dragData]="course">
+                        <p>
+                            <span>{{course.courseNum}}</span>
+                            <span>{{course.room}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="weekday">
+                <div class="tit">Friday</div>
+                <div class="course-layout" dnd-droppable (onDropSuccess)="drop5($event)">
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="c_row"></div>
+                    <div class="course-item" *ngFor="let course of Friday" [ngClass]="{'is-experiment': course.scheduleType == 1}" (click)="detail(course)"
+                        [ngStyle]="{'top': course.top + '%', 'bottom': course.bottom + '%', 'left': course.left + 'px'}"
+                        dnd-draggable [dragEnabled]="true" [dragData]="course">
+                        <p>
+                            <span>{{course.courseNum}}</span>
+                            <span>{{course.room}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <button mat-fab class="create" (click)="addCourse()">+</button>
+</div>
+<span style="visibility: hidden">
+    <input type="file" #fileInput ng2FileSelect [uploader]="uploader" [(ngModel)]="importFile.fileName" name="fileName">
+</span>
+<!--<div class="row ml-1 mt-3">
+  <div class="col-2"><h5>Course Scheduling</h5></div>
+  <div class="col-8">
+      <div class="row">
+          <div class="course-choice-toolbutton-container mr-4">
+              <select (change)="onSelectSemester($event.target.value)" [(ngModel)]="sem_select.Id">
+                  <option *ngFor="let semester of semesters" [ngValue]= "semester.Id">{{semester.SemesterTime}}</option>
+              </select>
+          </div>
+          <div class="ml-5">
+              <button class="btn btn-primary btn-sm" (click)="saveCourse()">Save</button>
+          </div>
+          <div class="ml-4">
+              <button class="btn btn-primary btn-sm mr-2" (click)="importcourse_schedule()" style="margin-left:10px">Import Course Schedule</button>
+              <input type="file" ng2FileSelect [uploader]="uploader" [(ngModel)]="importFile.fileName" name="fileName">
+          </div>
+      </div>
+  </div>
+  <div class="col-2">
+      <span class="del" dnd-droppable (onDropSuccess)="deleteCourse($event)"><mat-icon>delete</mat-icon></span>
+  </div>
+</div>
+<div class="row ml-1 mt-3 mr-1">
+  <div class="course col-12" [ngClass]="{'is-choose': isCopy || isExperiment}" id="courseTable">
+          <mat-spinner class="loading" *ngIf="isLoading"></mat-spinner>
+          <div class="time">
+              <div class="tit"></div>
+              <div class="course-layout">
+                  <div class="c_row">8:00</div>
+                  <div class="c_row">9:00</div>
+                  <div class="c_row">10:00</div>
+                  <div class="c_row">11:00</div>
+                  <div class="c_row">12:00</div>
+                  <div class="c_row">13:00</div>
+                  <div class="c_row">14:00</div>
+                  <div class="c_row">15:00</div>
+                  <div class="c_row">16:00</div>
+                  <div class="c_row">17:00</div>
+                  <div class="c_row">18:00</div>
+                  <div class="c_row">19:00</div>
+                  <div class="c_row">20:00</div>
+              </div>
+          </div>
+          <div class="weekday">
+              <div class="tit">Monday</div>
+              <div class="course-layout" dnd-droppable (onDropSuccess)="drop1($event)">
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="course-item" *ngFor="let course of Monday" [ngClass]="{'is-experiment': course.scheduleType == 1}" (click)="detail(course)"
+                      [ngStyle]="{'top': course.top + '%', 'bottom': course.bottom + '%', 'left': course.left + 'px'}"
+                      dnd-draggable [dragEnabled]="true" [dragData]="course">
+                      <p>
+                          <span>{{course.courseNum}}</span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="weekday">
+              <div class="tit">Tuesday</div>
+              <div class="course-layout" dnd-droppable (onDropSuccess)="drop2($event)">
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="course-item" *ngFor="let course of Tuesday" [ngClass]="{'is-experiment': course.scheduleType == 1}" (click)="detail(course)"
+                      [ngStyle]="{'top': course.top + '%', 'bottom': course.bottom + '%', 'left': course.left + 'px'}"
+                      dnd-draggable [dragEnabled]="true" [dragData]="course">
+                      <p>
+                          <span>{{course.courseNum}}</span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="weekday">
+              <div class="tit">Wednesday</div>
+              <div class="course-layout" dnd-droppable (onDropSuccess)="drop3($event)">
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="course-item" *ngFor="let course of Wednesday" [ngClass]="{'is-experiment': course.scheduleType == 1}" (click)="detail(course)"
+                      [ngStyle]="{'top': course.top + '%', 'bottom': course.bottom + '%', 'left': course.left + 'px'}"
+                      dnd-draggable [dragEnabled]="true" [dragData]="course">
+                      <p>
+                          <span>{{course.courseNum}}</span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="weekday">
+              <div class="tit">Thursday</div>
+              <div class="course-layout" dnd-droppable (onDropSuccess)="drop4($event)">
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="course-item" *ngFor="let course of Thursday" [ngClass]="{'is-experiment': course.scheduleType == 1}" (click)="detail(course)"
+                      [ngStyle]="{'top': course.top + '%', 'bottom': course.bottom + '%', 'left': course.left + 'px'}"
+                      dnd-draggable [dragEnabled]="true" [dragData]="course">
+                      <p>
+                          <span>{{course.courseNum}}</span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="weekday">
+              <div class="tit">Friday</div>
+              <div class="course-layout" dnd-droppable (onDropSuccess)="drop5($event)">
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="c_row"></div>
+                  <div class="course-item" *ngFor="let course of Friday" [ngClass]="{'is-experiment': course.scheduleType == 1}" (click)="detail(course)"
+                      [ngStyle]="{'top': course.top + '%', 'bottom': course.bottom + '%', 'left': course.left + 'px'}"
+                      dnd-draggable [dragEnabled]="true" [dragData]="course">
+                      <p>
+                          <span>{{course.courseNum}}</span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+  </div>
+  <button mat-fab class="create" (click)="addCourse()">+</button>
+</div>-->

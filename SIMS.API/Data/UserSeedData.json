@@ -1,0 +1,275 @@
+[
+    {
+      "Username": "siu854026138",
+      "FirstName": "Zhi Kang",
+      "MiddleName": "",
+      "LastName": "Wong",
+      "Level": "undergraduate",
+      "Gender": "male",
+      "DateOfBirth": "1997-04-08",
+      "Password": "password",
+      "KnownAs": "ZK",
+      "Created": "2019-03-23",
+      "LastActive": "2019-03-23",
+      "Introduction": "Senior in Computer Science.\r\n",
+      "LookingFor": "Job.\r\n",
+      "Interests": "Database.",
+      "City": "Carbondale",
+      "Country": "United States",
+      "PhoneNumber":"6185592618",
+      "Email":"zhikang.wong@gmail.com",
+      "Photos": [
+      ]
+    },
+    {
+      "Username": "siu853512345",
+      "FirstName": "Dorothy",
+      "MiddleName": "Mary",
+      "LastName": "Smith",
+      "Level": "undergraduate",
+      "Gender": "female",
+      "DateOfBirth": "1996-04-19",
+      "Password": "password",
+      "KnownAs": "Dorothy",
+      "Created": "2019-03-23",
+      "LastActive": "2019-03-23",
+      "Introduction": "Senior in Computer Science\r\n",
+      "LookingFor": "Research Opportunities\r\n",
+      "Interests": "Artificial Intelligence",
+      "City": "Chicago",
+      "Country": "United States",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/49.jpg",
+          "isMain": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Username": "siu853612345",
+      "FirstName": "Reba",
+      "MiddleName": "",
+      "LastName": "Doe",
+      "Level": "undergraduate",
+      "Gender": "female",
+      "DateOfBirth": "1997-12-05",
+      "Password": "password",
+      "KnownAs": "Reba",
+      "Created": "2019-03-23",
+      "LastActive": "2019-03-23",
+      "Introduction": "Senior in Computer Science\r\n",
+      "LookingFor": "Internship\r\n",
+      "Interests": "Security",
+      "City": "Chicago",
+      "Country": "United States",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/24.jpg",
+          "isMain": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Username": "siu853712345",
+      "FirstName": "Annmarie",
+      "MiddleName": "Kelly",
+      "LastName": "Jackson",
+      "Level": "undergraduate",
+      "Gender": "female",
+      "DateOfBirth": "1995-02-25",
+      "Password": "password",
+      "KnownAs": "Annmarie",
+      "Created": "2019-03-23",
+      "LastActive": "2019-03-23",
+      "Introduction": "Senior in Computer Science\r\n",
+      "LookingFor": "Job\r\n",
+      "Interests": "UI/UX",
+      "City": "St Louis",
+      "Country": "United States",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/74.jpg",
+          "isMain": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Username": "siu853812345",
+      "FirstName": "Ashley",
+      "MiddleName": "",
+      "LastName": "Lee",
+      "Level": "undergraduate",
+      "Gender": "female",
+      "DateOfBirth": "1997-03-01",
+      "Password": "password",
+      "KnownAs": "Ashley",
+      "Created": "2019-03-23",
+      "LastActive": "2019-03-23",
+      "Introduction": "Senior in Computer Science\r\n",
+      "LookingFor": "Internship\r\n",
+      "Interests": "Database",
+      "City": "Carbondale",
+      "Country": "United States",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/78.jpg",
+          "isMain": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Username": "siu851234567",
+      "FirstName": "Lee",
+      "MiddleName": "",
+      "LastName": "Jones",
+      "Level": "graduate",
+      "Gender": "female",
+      "DateOfBirth": "1994-02-25",
+      "Password": "password",
+      "KnownAs": "Lee",
+      "Created": "2019-03-23",
+      "LastActive": "2019-03-23",
+      "Introduction": "Master in Computer Science\r\n",
+      "LookingFor": "Job\r\n",
+      "Interests": "UI/UX",
+      "City": "St Louis",
+      "Country": "United States",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/80.jpg",
+          "isMain": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Username": "siu851233210",
+      "FirstName": "Mary",
+      "MiddleName": "",
+      "LastName": "Vargas",
+      "Level": "graduate",
+      "Gender": "female",
+      "DateOfBirth": "1993-02-15",
+      "Password": "password",
+      "KnownAs": "Mary",
+      "Created": "2019-03-23",
+      "LastActive": "2019-03-23",
+      "Introduction": "Master in Computer Science\r\n",
+      "LookingFor": "Job\r\n",
+      "Interests": "UI/UX",
+      "City": "St Louis",
+      "Country": "United States",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/14.jpg",
+          "isMain": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Username": "siu853912345",
+      "FirstName": "Roy",
+      "MiddleName": "",
+      "LastName": "Epps",
+      "Level": "undergraduate",
+      "Gender": "male",
+      "DateOfBirth": "1996-08-21",
+      "Password": "password",
+      "KnownAs": "Roy",
+      "Created": "2019-03-23",
+      "LastActive": "2019-03-23",
+      "Introduction": "Senior in Computer Science\r\n",
+      "LookingFor": "Job\r\n",
+      "Interests": "Cloud Computing",
+      "City": "Chicago",
+      "Country": "United States",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/men/50.jpg",
+          "isMain": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Username": "siu854012345",
+      "FirstName": "Dallas",
+      "MiddleName": "",
+      "LastName": "Weishaar",
+      "Level": "undergraduate",
+      "Gender": "male",
+      "DateOfBirth": "1996-09-07",
+      "Password": "password",
+      "KnownAs": "Duke",
+      "Created": "2019-03-23",
+      "LastActive": "2019-03-23",
+      "Introduction": "Senior in Computer Science\r\n",
+      "LookingFor": "Research Opportunities\r\n",
+      "Interests": "Security",
+      "City": "Chicago",
+      "Country": "United States",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/men/96.jpg",
+          "isMain": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Username": "siu854112345",
+      "FirstName": "Arthur",
+      "MiddleName": "",
+      "LastName": "Cassady",
+      "Level": "undergraduate",
+      "Gender": "male",
+      "DateOfBirth": "1998-03-07",
+      "Password": "password",
+      "KnownAs": "Lloyd",
+      "Created": "2019-03-23",
+      "LastActive": "2019-03-23",
+      "Introduction": "Senior in Computer Science\r\n",
+      "LookingFor": "Internship\r\n",
+      "Interests": "Game Design",
+      "City": "Chicago",
+      "Country": "United States",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/men/4.jpg",
+          "isMain": true,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "Username": "siu854212345",
+      "FirstName": "Larry",
+      "MiddleName": "",
+      "LastName": "Gates",
+      "Level": "undergraduate",
+      "Gender": "male",
+      "DateOfBirth": "1997-08-15",
+      "Password": "password",
+      "KnownAs": "Larsen",
+      "Created": "2019-03-23",
+      "LastActive": "2019-03-23",
+      "Introduction": "Senior in Computer Science\r\n",
+      "LookingFor": "Job\r\n",
+      "Interests": "Security",
+      "City": "St. Louis",
+      "Country": "United States",
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/men/76.jpg",
+          "isMain": true,
+          "description": ""
+        }
+      ]
+    }
+    
+  ]

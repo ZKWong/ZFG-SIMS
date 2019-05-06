@@ -1,0 +1,74 @@
+[
+    {
+        "prof_id": "1",
+        "course": "201",
+        "course_year": "2019",
+        "course_semester": "Fall"
+    },
+    {
+        "prof_id": "1",
+        "course": "202",
+        "course_year": "2019",
+        "course_semester": "Fall"
+    },
+	{
+        "prof_id": "1",
+        "course": "203",
+        "course_year": "2019",
+        "course_semester": "Fall"
+    },
+    {
+        "prof_id": "1",
+        "course": "204",
+        "course_year": "2019",
+        "course_semester": "Fall"
+    },
+	{
+        "prof_id": "2",
+        "course": "205",
+        "course_year": "2019",
+        "course_semester": "Fall"
+    },
+    {
+        "prof_id": "2",
+        "course": "206",
+        "course_year": "2019",
+        "course_semester": "Fall"
+    },
+	{
+        "prof_id": "2",
+        "course": "207",
+        "course_year": "2019",
+        "course_semester": "Fall"
+    },
+    {
+        "prof_id": "2",
+        "course": "208",
+        "course_year": "2019",
+        "course_semester": "Fall"
+    },
+	{
+        "prof_id": "3",
+        "course": "209",
+        "course_year": "2019",
+        "course_semester": "Fall"
+    },
+    {
+        "prof_id": "3",
+        "course": "210",
+        "course_year": "2019",
+        "course_semester": "Fall"
+    },
+	{
+        "prof_id": "3",
+        "course": "211",
+        "course_year": "2019",
+        "course_semester": "Fall"
+    },
+    {
+        "prof_id": "3",
+        "course": "212",
+        "course_year": "2019",
+        "course_semester": "Fall"
+    }
+] 

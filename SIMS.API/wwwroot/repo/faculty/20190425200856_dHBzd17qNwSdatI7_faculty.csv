@@ -1,0 +1,19 @@
+username,first_name,last_name,title,office,phone,research_interest,designation,current,email,homepage
+ahmed,Khaled,Ahmed,Clinical Assistant Professor,Engr A0407E,(618) 453-6179,High-Performance Computing,Term Faculty,Yes,kahmed@cs.siu.edu,http://www.cs.siu.edu/~kahmed
+mengistu,Tessema,Mengistu,Clinical Assistant Professor,Engr A0409G,(618) 453-6057,Cloud Computing,Term Faculty,Yes,tessema.mengistu@siu.edu,http://www.cs.siu.edu/~tmengistu
+yang,Ming,Yang,Instructor,Engr A0309B,(618) 453-6074,Machine Learning,Term Faculty,Yes,ming.yang@siu.edu,http://
+carver,Norman F.,Carver,Associate Professor,Engr A0307C,(618) 453-6048,Machine Learning and data sciences,Continuing Faculty,Yes,carver@cs.siu.edu,http://www.cs.siu.edu/~carver/
+che,Dunren,Che,Professor Undergraduate Program Director,Engr A0307B,(618) 453-6046,Database and Data mining *,Continuing Faculty,Yes,dche@cs.siu.edu,http://www.cs.siu.edu/~dche
+gupta,Bidyut,Gupta,Professor and Interim Chair,Engr A0405B,(618) 453-7194,Distributed Computing,Continuing Faculty,Yes,bidyut@cs.siu.edu,http://www.cs.siu.edu/gupta
+hexmoor,Henry,Hexmoor,Associate Professor Graduate Program Director,Engr A0409C,(618) 453-6047,Artificial Intelligence,Continuing Faculty,Yes,hexmoor@cs.siu.edu,http://www.cs.siu.edu/~hexmoor
+hou,Wen-Chi,Hou,Professor,Engr A0405,(618) 453-6040,Statistical databases,Continuing Faculty,Yes,hou@cs.siu.edu,http://www.cs.siu.edu/hou
+hoxha,Bardh,Hoxha,Assistant Professor,Engr A0409E,(618) 453-6039,Formal Methods,Continuing Faculty,Yes,bhoxha@cs.siu.edu,http://www.cs.siu.edu/~bhoxha
+huang,Xiaolan Sharon,Huang,Assistant Professor,Engr A0407D,(618) 453-6054,Data mining,Continuing Faculty,Yes,xhuang@cs.siu.edu,http://www.cs.siu.edu/~xhuang
+rekabdar,Banafsheh,Rekabdar,Assistant Professor,Engr A0405D,(618) 453-6056,Deep learning,Continuing Faculty,Yes,brekabdar@cs.siu.edu,http://www.cs.siu.edu/~brekabdar
+saeedloei,Neda,Saeedloei,Assistant Professor,Engr A0407,(618) 453-6059,Model-based design,Continuing Faculty,Yes,neda@cs.siu.edu,http://www.cs.siu.edu/~neda
+sinha,Koushik,Sinha,Assistant Professor,Engr A0407A,(618) 453-3922,Mobile Computing,Continuing Faculty,Yes,koushik.sinha@cs.siu.edu,http://www.cs.siu.edu/~ksinha
+crosby,Garath,Grosby,Associate Professor,Engr D121,(618) 453-7841,Wireless sensor networks,Continuing Faculty,Yes,garth.crosby@siu.edu,http://engr.siu.edu/~crosby/
+samadi,S. Yaser,Samadi,Assistant Professor,Neckers 281,(618) 453-6502,Multivariate time series analysis,Continuing Faculty,Yes,ysamad@siu.edu,http://math.siu.edu/faculty-staff/faculty/samadi.php
+rachamalla,,Rachamalla,,,,,,Yes,,
+math,,MATH,,,,,,Yes,,
+tba,,TBA,,,,,,Yes,,

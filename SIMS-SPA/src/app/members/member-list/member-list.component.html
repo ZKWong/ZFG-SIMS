@@ -1,0 +1,69 @@
+<div class="text-center mt-3">
+  <h2>Total Students - {{ pagination.totalItems }} found</h2>
+  <button class="btn btn-primary" (click)="importdata()" style="margin-left:10px">Import User Data</button>
+  <input type="file" ng2FileSelect [uploader]="uploader" [(ngModel)]="userData.fileName" name="fileName" style="margin-left:10px">
+</div>
+
+<div class="container mt-3">
+  <form class="form-inline" #form="ngForm" (ngSubmit)="loadUsers()" novalidate>
+      <div class="input-group">
+          <div class="input-group-prepend">
+            <!--<button type="button" style="width: 100px" name="role" class="btn btn-primary" [(ngModel)]="userParams.role"
+              btnRadio="Student" (click)="loadUsers()">
+              Students
+            </button>
+            <button type="button" style="width: 100px" name="role" class="btn btn-primary" [(ngModel)]="userParams.role"
+              btnRadio="Faculty" (click)="loadUsers()">
+              Faculty
+            </button>-->
+          </div>
+          <select class="custom-select" style="width: 200px" id="searchOption" [(ngModel)]="userParams.searchBy" name="searchOption"
+            (change)="loadUsers()">
+            <option value="" disabled selected>Search By</option>
+            <option *ngFor="let option of searchByOptions" [value]="option.value">
+              {{ option.display }}
+        </option>
+      </select>
+      <input type="text" style="width: 200px" class="form-control" name="searchByInput"
+        [(ngModel)]="userParams.searchByInput" (keyup)="handleInput($event)">
+    </div>
+    <div class="col">
+        <div class="input-group float-right">
+          <select class="custom-select" style="width: 160px" id="orderOption" [(ngModel)]="userParams.orderBy" name="orderOption"
+            (change)="loadUsers()">
+            <option value="" disabled selected>Order By</option>
+            <option *ngFor="let option of orderByOptions" [value]="option.value">
+              {{ option.display }}
+            </option>
+          </select>
+          <select class="custom-select" style="width: 130px" id="itemsPerPage" [(ngModel)]="pagination.itemsPerPage"
+            name="itemsPerPage" (change)="loadUsers()">
+            <option value=10 selected>10 Per Page</option>
+            <option value=20>20 Per Page</option>
+            <option value=50>50 Per Page</option>
+          </select>
+        </div>
+    </div>
+  </form>
+  <br />
+  <div class="row">
+    <div *ngFor="let user of users" class="col-lg-2 col-md-3 col-sm-6 ml-3 mr-3">
+      <app-member-card [user]="user"></app-member-card>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <pagination
+    [boundaryLinks]="true"
+    [totalItems]="pagination.totalItems"
+    [itemsPerPage]="pagination.itemsPerPage"
+    [(ngModel)]="pagination.currentPage"
+    (pageChanged)="pageChanged($event)"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+  >
+  </pagination>
+</div>

@@ -1,0 +1,14 @@
+courseNum,section,creditHours,courseTitle,crn,maxStudent,weekday,instructor,scheduleStartTime,scheduleEndTime,room,notes,semesterTime
+201,1,3,Problem Solv w/ Computers,62881,60,Monday,Spantidi,09:00,09:50,EGRA 219,Various 50 mins labs,Spring 2020
+201,1,3,Problem Solv w/ Computers,62881,60,Wednesday,Spantidi,09:00,09:50,EGRA 219,Various 50 mins labs,Spring 2020
+200B,1,3,Computer Concepts,61302,40,Anyday,Rachamalla,15:00,16:15,EGRA 222,lab R in ASA 112E,Spring 2020
+201,1,3,Problem Solv w/ Computers,62881,60,Anyday,Spantidi,09:00,09:50,EGRA 219,Various 50 mins labs,Spring 2020
+202,1,4,Intro to Computer Science,61305,60,Anyday,Ahmed,11:00,11:50,EGRA 219,Intro Courses,Spring 2020
+215,1,4,Discrete Math,61308,40,Anyday,TBA,10:00,11:50,EGRA 220,Various 50 mins labs,Spring 2020
+220,1,4,Programming w/ Data Structures,61309,50,Anyday,TBA,13:00,13:50,EGRA 207,Various 50 mins labs,Spring 2020
+221,1,4,Internet & Mobile Computing,62437,23,Anyday,TBA,14:00,14:50,ASA 112A,Various 50 mins labs,Spring 2020
+221,2,4,Internet & Mobile Computing,62208,7,Anyday,TBA,14:00,14:50,ASA 112A,Various 50 mins labs,Spring 2020
+280,1,3,Computational Stat I,62437,35,Anyday,TBA,16:00,16:50,EGRA 320,meets with cs491-5,Spring 2020
+290,1,3,Comm Skills Ethics for CS,62209,30,Anyday,Hexmoor,14:00,15:15,EGRA 422,Various 50 mins labs,Spring 2020
+305,1,3,Software Development,62092,25,Anyday,Ahmed,15:35,16:50,EGRA 408,Various 50 mins labs,Spring 2020
+306,1,4,Linux Programming,61876,30,Anyday,Sinha,14:00,14:50,EGRA 207,Various 50 mins labs,Spring 2020

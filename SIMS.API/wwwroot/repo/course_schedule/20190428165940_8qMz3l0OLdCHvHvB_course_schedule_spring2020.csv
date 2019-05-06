@@ -1,0 +1,24 @@
+courseNum,section,creditHours,courseTitle,crn,maxStudent,weekday,instructor,scheduleStartTime,scheduleEndTime,room,notes,semesterTime
+200B,1,3,Computer Concepts,61302,40,Monday,Rachamalla,15:00,16:15,EGRA 222,lab R in ASA 112E,Fall 2019
+200B,1,3,Computer Concepts,61302,40,Wednesday,Rachamalla,15:00,16:15,EGRA 222,lab R in ASA 112E,Fall 2019
+201,1,3,Problem Solv w/ Computers,62881,60,Monday,Spantidi,09:00,09:50,EGRA 219,Various 50 mins labs,Fall 2019
+201,1,3,Problem Solv w/ Computers,62881,60,Wednesday,Spantidi,09:00,09:50,EGRA 219,Various 50 mins labs,Fall 2019
+200B,1,3,Computer Concepts,61302,40,Anyday,Rachamalla,15:00,16:15,EGRA 222,lab R in ASA 112E,Fall 2019
+201,1,3,Problem Solv w/ Computers,62881,60,Anyday,Spantidi,09:00,09:50,EGRA 219,Various 50 mins labs,Fall 2019
+202,1,4,Intro to Computer Science,61305,60,Anyday,Ahmed,11:00,11:50,EGRA 219,Intro Courses,Fall 2019
+215,1,4,Discrete Math,61308,40,Anyday,TBA,10:00,11:50,EGRA 220,Various 50 mins labs,Fall 2019
+220,1,4,Programming w/ Data Structures,61309,50,Anyday,TBA,13:00,13:50,EGRA 207,Various 50 mins labs,Fall 2019
+221,1,4,Internet & Mobile Computing,62437,23,Anyday,TBA,14:00,14:50,ASA 112A,Various 50 mins labs,Fall 2019
+221,2,4,Internet & Mobile Computing,62208,7,Anyday,TBA,14:00,14:50,ASA 112A,Various 50 mins labs,Fall 2019
+280,1,3,Computational Stat I,62437,35,Anyday,TBA,16:00,16:50,EGRA 320,meets with cs491-5,Fall 2019
+290,1,3,Comm Skills Ethics for CS,62209,30,Anyday,Hexmoor,14:00,15:15,EGRA 422,Various 50 mins labs,Fall 2019
+305,1,3,Software Development,62092,25,Anyday,Ahmed,15:35,16:50,EGRA 408,Various 50 mins labs,Fall 2019
+306,1,4,Linux Programming,61876,30,Anyday,Sinha,14:00,14:50,EGRA 207,Various 50 mins labs,Fall 2019
+311,1,3,Theory Program Languages,61310,25,Anyday,Saeedloei,14:00,15:15,EGRA 220,Various 50 mins labs,Fall 2019
+320,1,3,Computer Org Architecture,62371,25,Anyday,Huang,12:00,12:50,EGRA 222,Various 50 mins labs,Fall 2019
+335,1,3,Operating Systems,61312,25,Anyday,Carver,11:00,11:50,EGRA 310,Various 50 mins labs,Fall 2019
+408,1,3,Applied Cryptography,61313,20,Anyday,Gupta,11:00,12:15,EGRA 420,Various 50 mins labs,Fall 2019
+430,1,3,Database Systems,61314,25,Anyday,Che,14:00,15:15,EGRA 322,Various 50 mins labs,Fall 2019
+455,1,3,Adv Alg Design Analysis,67508,30,Anyday,Rekabdar,12:35,13:50,EGRA 210,Various 50 mins labs,Fall 2019
+498,1,2,Senior Project in CS 1,64640,35,Anyday,TBA,11:00,12:15,EGRA 200,Senior Class,Fall 2019
+533,1,3,Data Mining / Big Data Analysis,61319,15,Anyday,Che,09:35,10:50,EGRA 210,,Fall 2019
