@@ -59,7 +59,7 @@ namespace SIMS.API.Data
                 }
             }
         }
-        public void Seed_courses(){
+        /* public void Seed_courses(){
             var coursesData = System.IO.File.ReadAllText("Data/coursesSeedData.json");
             var courses = JsonConvert.DeserializeObject<List<kourses>>(coursesData);
             foreach (var course in courses) 
@@ -68,8 +68,8 @@ namespace SIMS.API.Data
             }
 
             _context.SaveChanges();
-        }
-        public void Seed_courses_offer(){
+        }*/
+        /* public void Seed_courses_offer(){
             var courses_offerData = System.IO.File.ReadAllText("Data/courses_offerSeedData.json");
             var courses_offer = JsonConvert.DeserializeObject<List<courses_offer>>(courses_offerData);
             foreach (var course_offer in courses_offer) 
@@ -78,8 +78,8 @@ namespace SIMS.API.Data
             }
 
             _context.SaveChanges();
-        }
-        public void Seed_day_hourly(){
+        }*/
+        /* public void Seed_day_hourly(){
             var day_hourlyData = System.IO.File.ReadAllText("Data/day_hourlySeedData.json");
             var days_hourly = JsonConvert.DeserializeObject<List<day_hourly>>(day_hourlyData);
             foreach (var hday_hourly in days_hourly) 
@@ -88,6 +88,6 @@ namespace SIMS.API.Data
             }
 
             _context.SaveChanges();
-        }
+        }*/
     }
 }

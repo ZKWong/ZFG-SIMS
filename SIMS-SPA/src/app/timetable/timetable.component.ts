@@ -357,7 +357,7 @@ export class TimetableComponent implements OnInit, OnDestroy {
 
     onSelectSemester(sem_selected) {
         console.log(this.sem_select);
-        // this.router.navigate(['/timetable', this.sem_select.Id]);
+        this.router.navigate(['/timetable', this.sem_select.Id]);
         this.justStarted = true;
         if (!this.formIsClean) {
             if (confirm('Do you want to save your changes before goto other semester schedules?\n(click cancel to discard changes)')) {

@@ -9,14 +9,10 @@ namespace SIMS.API.Data
         UserRole, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
         public DataContext(DbContextOptions<DataContext> options) : base (options) {}
-        public DbSet<Value> Values { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<ExitSurvey> ExitSurveys { get; set; }
         public DbSet<GradSeniorSurvey> GradSeniorSurveys { get; set; }
         public DbSet<ThesisProject> ThesisProjects { get; set; }
-        public DbSet<day_hourly> day_hourly { get; set; }
-        public DbSet<courses_offer> courses_offer { get; set; }
-        public DbSet<kourses> kourses { get; set; }
         public DbSet<faculty> faculty { get; set; }
         public DbSet<BachelorsMentor> BachelorsMentor { get; set; }
         public DbSet<BachelorsProjectAdvisor> BachelorsProjectAdvisor { get; set; }
@@ -29,8 +25,6 @@ namespace SIMS.API.Data
         public DbSet<DoctorateCommittee> DoctorateCommittee { get; set; }
         public DbSet<Semester> Semesters  { get; set; }
         public DbSet<Course> Courses { get; set; }
-
-
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -17,9 +17,6 @@ import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { ExitsurveysviewComponent } from './exitsurveysview/exitsurveysview.component';
 import { GradseniorsurveysviewComponent } from './gradseniorsurveysview/gradseniorsurveysview.component';
 import { ImportuserdataComponent } from './importuserdata/importuserdata.component';
-import { CourseschedulerComponent } from './coursescheduler/coursescheduler.component';
-import { CoursesComponent } from './courses/courses.component';
-import { CoursesofferComponent } from './coursesoffer/coursesoffer.component';
 import { ImportfacultydataComponent } from './importfacultydata/importfacultydata.component';
 import { SemesterlistComponent } from './semesterlist/semesterlist.component';
 import { SemesterformComponent } from './semesterform/semesterform.component';
@@ -47,9 +44,6 @@ export const appRoutes: Routes = [
             { path : 'exitsurveysview', component: ExitsurveysviewComponent },
             { path : 'gradseniorsurveysview', component: GradseniorsurveysviewComponent },
             { path : 'importuserdata', component: ImportuserdataComponent },
-            { path : 'coursescheduler', component: CourseschedulerComponent },
-            { path : 'courses', component: CoursesComponent },
-            { path : 'coursesoffer', component: CoursesofferComponent },
             { path : 'importfacultydata', component: ImportfacultydataComponent },
             { path : 'semesterlist', component: SemesterlistComponent },
             { path: 'semesterform', component: SemesterformComponent },

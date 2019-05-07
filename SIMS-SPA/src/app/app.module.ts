@@ -43,9 +43,6 @@ import { GradseniorsurveysviewComponent } from './gradseniorsurveysview/gradseni
 import { FileUploadModule } from 'ng2-file-upload';
 import { ImportuserdataComponent } from './importuserdata/importuserdata.component';
 import { ImportfacultydataComponent } from './importfacultydata/importfacultydata.component';
-import { CoursesComponent } from './courses/courses.component';
-import { CourseschedulerComponent } from './coursescheduler/coursescheduler.component';
-import { CoursesofferComponent } from './coursesoffer/coursesoffer.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TooltipModule } from 'ng2-tooltip-directive';
@@ -89,9 +86,6 @@ export function tokenGetter() {
       GradseniorsurveysviewComponent,
       ImportuserdataComponent,
       ImportfacultydataComponent,
-      CoursesComponent,
-      CourseschedulerComponent,
-      CoursesofferComponent,
       SemesterlistComponent,
       SemesterformComponent,
       TimetableComponent,
