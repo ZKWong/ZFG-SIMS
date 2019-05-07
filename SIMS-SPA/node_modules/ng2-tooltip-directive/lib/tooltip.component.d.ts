@@ -1,0 +1,33 @@
+import { ElementRef, EventEmitter, Renderer2 } from '@angular/core';
+export declare class TooltipComponent {
+    private elementRef;
+    private renderer;
+    _show: boolean;
+    data: any;
+    events: EventEmitter<{}>;
+    hostStyleTop: string;
+    hostStyleLeft: string;
+    hostStyleZIndex: number;
+    hostStyleTransition: string;
+    hostStyleMaxWidth: string;
+    hostClassShow: boolean;
+    hostClassShadow: boolean;
+    hostClassLight: boolean;
+    transitionEnd(event: any): void;
+    show: boolean;
+    readonly placement: any;
+    readonly element: any;
+    readonly elementPosition: any;
+    readonly options: any;
+    readonly value: any;
+    readonly tooltipOffset: number;
+    readonly isThemeLight: boolean;
+    constructor(elementRef: ElementRef, renderer: Renderer2);
+    ngOnInit(): void;
+    setPosition(): void;
+    setPlacementClass(): void;
+    setZIndex(): void;
+    setCustomClass(): void;
+    setAnimationDuration(): void;
+    setStyles(): void;
+}
