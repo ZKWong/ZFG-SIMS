@@ -28,13 +28,13 @@ Before you run:
    npm install @angular/animations --save
    npm install hammerjs --save
 
-to create new project
+to create new project:
 => mkdir SisApp
 => cd SisApp
 => dotnet new webapi -o SisApp.API -n SisApp.API
 => ng new SisApp-SPA
 
-3. database entity framework update
+3. database entity framework update:
    install sqliteodbc_w64.exe from setup folder
    dotnet ef migrations add "initialMysql"
    dotnet ef database update
@@ -46,12 +46,12 @@ to create new project
 
 In-depth
 
-6. steps to create new component in angular package
+6. steps to create new component in angular package:
    appmodule.ts => make a backup copy of import section
    add new component to route.ts
    edit mainpage to call this new component (optional)
 
-7. steps to create new controller and data in c# api
+7. steps to create new controller and data in c# api:
    Models => create new .cs file
    Data   => update DataContext.cs
    dotnet ef migrations add "create newtable tablename"
